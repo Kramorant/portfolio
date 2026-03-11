@@ -14,8 +14,8 @@ RUN mkdir -p /var/www/html/projects/data \
     && chmod -R 775 /var/www/html/projects \
     && chmod -R 775 /var/www/html/assets/img/projects
 
-# Configurar Apache para usar el puerto dinámico de Railway ($PORT)
-RUN sed -i 's/Listen 80/Listen ${PORT}/' /etc/apache2/ports.conf \
-    && sed -i 's/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/' /etc/apache2/sites-enabled/000-default.conf
+# Copia el script de arranque
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-EXPOSE 80
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
