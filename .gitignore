@@ -1,8 +1,11 @@
-# Configuración con contraseña del admin
-admin/config.php
+# Credenciales de entorno (nunca subir al repo)
+.env
 
-# Datos locales
+# Datos locales de producción
 projects/data/projects.json
+
+# Imágenes subidas por el admin
+assets/img/projects/
 
 # Archivos del sistema
 .DS_Store
