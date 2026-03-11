@@ -1,0 +1,12 @@
+# Configuración con contraseña del admin
+admin/config.php
+
+# Datos locales
+projects/data/projects.json
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# XAMPP
+*.log

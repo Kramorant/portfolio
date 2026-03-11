@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Proyectos de Kramorant">
+  <title>Proyectos | Kramorant</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="neon-text">&lt;</span>KQ<span class="neon-text">/&gt;</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html"      class="nav-link">Inicio</a></li>
+          <li><a href="projects.html"   class="nav-link active">Proyectos</a></li>
+          <li><a href="dashboard.html"  class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO SECCIÓN ========== -->
+    <section class="page-hero section-padding">
+      <div class="container">
+        <h1 class="page-title neon-glow">Proyectos</h1>
+        <p class="page-subtitle">Una colección de lo que he construido y aprendido.</p>
+      </div>
+    </section>
+
+    <!-- ========== FILTROS ========== -->
+    <section class="projects-filters section-padding-sm">
+      <div class="container">
+        <div class="filter-bar" id="filterBar" role="group" aria-label="Filtrar por tecnología">
+          <!-- Los filtros se generan dinámicamente desde los tags de projects.json -->
+          <button class="filter-btn active" data-filter="all">Todos</button>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="search"
+            id="projectSearch"
+            placeholder="Buscar proyecto..."
+            aria-label="Buscar proyecto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GRID DE PROYECTOS ========== -->
+    <section class="projects-section section-padding" id="projects">
+      <div class="container">
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Las tarjetas se renderizan desde projects.json via JS -->
+          <div class="loading-placeholder">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando proyectos...
+          </div>
+        </div>
+        <p class="no-results hidden" id="noResults">
+          No se encontraron proyectos con ese filtro.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== MODAL DE DETALLE ========== -->
+  <div class="modal-overlay hidden" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-content" id="modalContent">
+        <!-- Contenido inyectado por JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">
+        Diseñado y desarrollado por <span class="neon-text">Kramorant</span>
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/Kramorant" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; <span class="currentYear"></span> Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/projects.js"></script>
+</body>
+</html>

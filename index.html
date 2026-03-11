@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Portafolio personal de Kramorant - Desarrollador aprendiz">
+    <title>Portafolio de Kramorant</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+
+
+    <!-- Barra de navegación -->
+     <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="neon-text">&lt;</span>KR<span class="neon-text">/&gt;</span>
+            </a>
+        
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="projects.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                </ul>
+            </nav>
+
+
+
+    <!-- Botón de menú para móviles -->    
+     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+     </button>    
+        </div>
+
+    
+     </header>
+
+
+
+<!-- HERO (no se que cojones hace esto, pero funciona) -->     
+<main>
+<section class="hero" id="hero">
+     <div class="hero-bg-grid"></div>
+     <div class="hero-content">
+        <p class="hero-greeting">Saludos, soy Kramorant</p>
+        <h1 class="hero-title neon-glow">Portafolio de Kramorant</h1>
+        <h2 class="hero-subtitle typewriter" id="typewriter"></h2>
+        <p class="hero-description">
+            Aprendiz en desarrollo de software y sistemas.<br>
+            ¡Bienvenido a mi sitio web!
+        </p>
+
+        <div class="hero-buttons">
+            <a href="projects.html" class="btn btn-primary">
+                <i class="fa-solid fa-code"></i> Ver Proyectos
+            </a>
+
+            <a href="dashboard.html" class="btn btn-secondary">
+                <i class="fa-brands fa-github"></i> Ver Dashboard
+            </a>
+        </div>
+    </div>
+
+
+
+<!-- Decoración lateral -->
+<div class="hero-visual">
+    <div class="glowin-circle"></div>
+    <div class="floating-icons">
+        <i class="fa-brands fa-html5" style="--delay:0s"></i>
+        <i class="fa-brands fa-css3-alt" style="--delay:0.5s"></i>
+        <i class="fa-brands fa-js" style="--delay:1s"></i>
+        <i class="fa-brands fa-github" style="--delay:1.5s"></i>
+    </div>
+</div>    
+
+</section>
+
+
+
+<!-- Sobre mí -->
+<section class="about section-padding" id="about">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">01.</span> Sobre mí
+        </h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Soy un desarrollador enfocado en el frontend y escritorio, con interés en diseño de interfaces,
+              automatización y sistemas. Me gusta construir cosas que sean
+              tanto funcionales como visualmente agradables.
+            </p>
+            <p>
+              Aquí encontrarás mis proyectos, estadísticas de GitHub y métodos de contacto.
+            </p>
+            <ul class="skills-list">
+              <li><i class="fa-solid fa-chevron-right neon-text"></i> HTML5 / CSS3</li>
+              <li><i class="fa-solid fa-chevron-right neon-text"></i> JavaScript</li>
+              <li><i class="fa-solid fa-chevron-right neon-text"></i> PHP</li>
+              <li><i class="fa-solid fa-chevron-right neon-text"></i> Git / GitHub</li>
+            </ul>
+          </div>
+          <div class="about-image-wrapper">
+            <div class="about-image-frame">
+              <!-- Reemplaza con tu foto -->
+              <img src="assets/img/rodi.jpg" alt="Foto de perfil" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Proyectos destacados (preview) -->
+  <section class="featured section-padding" id="featured">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">02.</span> Proyectos Destacados
+        </h2>
+        <div class="featured-grid" id="featuredGrid">
+          <!-- Se cargarán dinámicamente desde projects.json via JS -->
+          <div class="loading-placeholder">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando proyectos...
+          </div>
+        </div>
+        <div class="section-cta">
+          <a href="projects.html" class="btn btn-outline">Ver todos los proyectos →</a>
+        </div>
+      </div>
+    </section>
+</main>
+
+
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">
+        Diseñado y desarrollado por <span class="neon-text">Kramorant</span>
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/Kramorant" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/projects.js"></script>
+</body>
+</html>

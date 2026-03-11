@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dashboard GitHub de Kramorant">
+  <title>Dashboard | KramorantQuiero</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Chart.js para los gráficos de lenguajes -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="neon-text">&lt;</span>KQ<span class="neon-text">/&gt;</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html"     class="nav-link">Inicio</a></li>
+          <li><a href="projects.html"  class="nav-link">Proyectos</a></li>
+          <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="page-hero section-padding">
+      <div class="container">
+        <h1 class="page-title neon-glow">Dashboard</h1>
+        <p class="page-subtitle">Estadísticas en tiempo real de mi actividad en GitHub.</p>
+      </div>
+    </section>
+
+    <!-- ========== PERFIL GITHUB ========== -->
+    <section class="dashboard-section section-padding" id="githubProfile">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">01.</span> Perfil de GitHub
+        </h2>
+        <div class="profile-card" id="profileCard">
+          <!-- Cargado por github.js -->
+          <div class="loading-placeholder">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando perfil...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ESTADÍSTICAS ========== -->
+    <section class="dashboard-section section-padding" id="githubStats">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">02.</span> Estadísticas &amp; Lenguajes
+        </h2>
+
+        <!-- Tarjetas SVG de github-readme-stats -->
+        <div class="stats-cards-grid">
+          <div class="stat-card-wrapper">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=Kramorant&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d0d1a&title_color=00f5ff&icon_color=bf00ff&text_color=ffffff"
+              alt="Estadísticas de GitHub"
+              loading="lazy"
+              class="stats-img"
+            />
+          </div>
+          <div class="stat-card-wrapper">
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=Kramorant&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d0d1a&title_color=00f5ff&text_color=ffffff"
+              alt="Lenguajes más usados"
+              loading="lazy"
+              class="stats-img"
+            />
+          </div>
+          <div class="stat-card-wrapper streak">
+            <img
+              src="https://streak-stats.demolab.com/?user=Kramorant&theme=tokyonight&hide_border=true&background=0d0d1a&stroke=00f5ff&ring=bf00ff&fire=ff00aa&currStreakLabel=00f5ff"
+              alt="GitHub Streak"
+              loading="lazy"
+              class="stats-img"
+            />
+          </div>
+        </div>
+
+        <!-- Gráfico de lenguajes dinámico (via GitHub API + Chart.js) -->
+        <div class="chart-wrapper">
+          <h3 class="chart-title">Distribución de lenguajes <span class="neon-text">(API en vivo)</span></h3>
+          <div class="chart-container">
+            <canvas id="languagesChart" aria-label="Gráfico de lenguajes" role="img"></canvas>
+          </div>
+          <div class="chart-legend" id="chartLegend"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ACTIVIDAD RECIENTE ========== -->
+    <section class="dashboard-section section-padding" id="recentActivity">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">03.</span> Actividad Reciente
+        </h2>
+
+        <!-- Gráfico de contribuciones -->
+        <div class="activity-graph-wrapper">
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=Kramorant&theme=react-dark&bg_color=0d0d1a&color=00f5ff&line=bf00ff&point=ff00aa&hide_border=true"
+            alt="Gráfico de actividad GitHub"
+            loading="lazy"
+            class="activity-graph"
+          />
+        </div>
+
+        <!-- Últimos eventos desde la GitHub API -->
+        <div class="activity-feed" id="activityFeed">
+          <div class="loading-placeholder">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando actividad...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REPOSITORIOS RECIENTES ========== -->
+    <section class="dashboard-section section-padding" id="recentRepos">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">04.</span> Repositorios Recientes
+        </h2>
+        <div class="repos-grid" id="reposGrid">
+          <div class="loading-placeholder">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando repositorios...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FORMULARIO DE CONTACTO ========== -->
+    <section class="dashboard-section section-padding" id="contact">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="neon-text">05.</span> Contacto
+        </h2>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <ul class="contact-links">
+              <li>
+                <i class="fa-brands fa-github neon-text"></i>
+                <a href="https://github.com/Kramorant" target="_blank">github.com/Kramorant</a>
+              </li>
+              <!-- Añadiré más metodos de contacto en algún momento -->
+            </ul>
+          </div>
+
+          <!-- Formulario — acción configurada con Formspree -->
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/meerader"
+            method="POST"
+            novalidate
+          >
+            <div class="form-group">
+              <label for="contactName">Nombre</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="Tu nombre"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="tu@email.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Asunto</label>
+              <input
+                type="text"
+                id="contactSubject"
+                name="subject"
+                placeholder="¿De qué va el mensaje?"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Mensaje</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                rows="5"
+                placeholder="Escribe tu mensaje aquí..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary contact-submit">
+              <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+            </button>
+            <!-- Feedback al usuario -->
+            <p class="form-feedback hidden" id="formFeedback"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">
+        Diseñado y desarrollado por <span class="neon-text">Kramorant</span>
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/Kramorant" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; <span class="currentYear"></span> Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/github.js"></script>
+</body>
+</html>
